@@ -1,0 +1,124 @@
+{% extends "base.html" %} {% block title %}Summary{% endblock %} {% block
+content %}
+<div class="container">
+  <h1 style="text-align: center; padding-bottom: 10px; color: white">
+    Content Summary
+  </h1>
+
+
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <br /><br /><br />
+      <ul class="nav flex-column nav-tab" style="background-color: rgb(153, 174, 221, 0.5)">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            data-toggle="tab"
+            href="#spacy"
+            style="font-size: medium; color: black"
+            >Model 1</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            href="#lexrank"
+            style="font-size: medium; color: black"
+            >Model 2</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            href="#gensim"
+            style="font-size: medium; color: black"
+            >Model 3</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            href="#nltk"
+            style="font-size: medium; color: black"
+            >Model 4</a
+          >
+        </li>
+        <!--<li><a data-toggle="tab" href="#bart">BART</a></li>
+            <li><a data-toggle="tab" href="#bert">BERT</a></li>
+            <li><a data-toggle="tab" href="#gpt2">GPT-2</a></li>-->
+      </ul>
+      <br/><br/>
+    </div>
+    <div class="col-md-9 mb-4">
+      <div class="tab-content">
+        <div id="spacy" class="tab-pane fade in show active">
+          <h3>Summarization using Spacy</h3>
+          <p style="margin-left: 350px;">{{ sp }} min read, {{ sp_count }} words</p>
+          <textarea
+            name="sp"
+            id="sp"
+            class="form-control"
+            rows="10"
+            style="resize: none; overflow: auto; border: none; background-color: rgb(195, 195, 231, 0.5);"
+            readonly
+          >{{ spacy_final_summary }}</textarea>
+        </div>
+        <div id="lexrank" class="tab-pane fade">
+          <h3>Summarization using LexRank</h3>
+          <p style="margin-left: 320px;">{{ lx }} min read, {{ lx_count }} words</p>
+          <textarea
+            name="lr"
+            id="lr"
+            class="form-control"
+            rows="10"
+            style="resize: none; overflow: auto; border: none; background-color: rgb(195, 195, 231, 0.5);"
+            readonly
+          >{{ lex_final_summary }}</textarea>
+        </div>
+        <div id="gensim" class="tab-pane fade">
+          <h3>Summarization using Gensim</h3>
+          <p style="margin-left: 320px;">{{ gs }} min read, {{ gs_count }} words</p>
+          <textarea
+            name="gs"
+            id="gs"
+            class="form-control"
+            rows="10"
+            style="resize: none; overflow: auto; border: none; background-color: rgb(195, 195, 231, 0.5);"
+            readonly
+          >{{ gensim_final_summary }}</textarea>
+        </div>
+        <div id="nltk" class="tab-pane fade">
+          <h3>Summarization using NLTK</h3>
+          <p style="margin-left: 350px;">{{ nn }} min read, {{ nn_count }} words</p>
+          <textarea
+            name="nn"
+            id="nn"
+            class="form-control"
+            rows="10"
+            style="resize: none; overflow: auto; border: none; background-color: rgb(195, 195, 231, 0.5);"
+            readonly
+          >{{ nltk_final_summary }}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br/><br/>
+  <div style="margin-left:290px;">
+    <h3>Original Text/URL</h3>
+    <p style="margin-left: 545px;">{{ raw_count }} words</p><br/>
+
+    <textarea
+      style="resize: none; overflow: auto; width:850px; border: none; background-color: rgb(195, 195, 231, 0.5);"
+      rows= "10"
+      readonly
+    >{{ raw_url }}  {{ rawtext }}</textarea>
+    <br/><br/>
+    <h3>Important Features</h3><br/>
+    <img src= "{{ wordcloud }}" width="90%"/>
+  </div>
+</div>
+{% endblock %}

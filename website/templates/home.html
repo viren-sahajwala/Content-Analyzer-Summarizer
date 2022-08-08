@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %}Summarizer{% endblock %} {% block
+content %}
+
+<h1 style="text-align: center; padding-bottom: 10px; color: white">
+  Content Analyzer and Summarizer
+</h1>
+
+<div class="container">
+  <form method="POST" action="/txt_summarize">
+    <div class="row fade in active">
+      <textarea
+        name="tt_txt"
+        id="tt_txt"
+        class="form-control shadow p-3 mb-5 bg-dark rounded"
+        rows="15"
+        placeholder="Enter your text ..."
+        style="resize: none;overflow: auto; background-color: rgb(195, 195, 231, 0.5);"
+        minlength="100"
+        required
+        autofocus
+      ></textarea>
+      <div class="col">
+        <a href="/lnk" class="lnk_link">Enter a link instead? </a>
+        <button type="submit" class="summbtn">Summarize</button>
+        <input id="clear" type="reset" class="clearbtn" />
+      </div>
+      <div class="col" style="float: left">
+        <select class="lang_slt" name="lang" id="lang" onchange="nextopt(this)">
+          <option value="eng">English</option>
+          <option value="fre">French</option>
+          <option value="ger">German</option>
+        </select>
+      </div>
+      <div class="col" style="float: left">
+        <select class="lang_slt" name="lang" id="lang">
+          <option value="ct">Content Type</option>
+          <option value="rev">Review</option>
+          <option value="gen">Generic</option>
+          <option value="com">Complaint</option>
+          <option value="fdb">Feedback</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

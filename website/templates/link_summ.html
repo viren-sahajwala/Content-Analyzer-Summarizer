@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}Summarizer{% endblock %} {% block
+    content %}
+    
+    <h1 style="text-align: center; padding-bottom: 10px; color: white">
+      Content Analyzer and Summarizer
+    </h1>
+    
+    <div class="container">
+      <form method="POST" action="/lnk_summarize">
+        <div class="row fade in active">
+            <div class="input-group">
+                <input
+                  id="tt_lnk"
+                  name="tt_lnk"
+                  type="url"
+                  class="form-control shadow p-3 mb-5 bg-dark rounded"
+                  style="resize: none; overflow: auto; width: 870pt;"
+                  placeholder="Paste your URL ..."
+                  required
+                  autofocus
+                />
+            </div>
+          <div class="col">
+            <a href="/" class="lnk_link">Enter text instead? </a>
+            <button type="submit" class="summbtn">Summarize</button>
+            <input id="clear" type="reset" class="clearbtn" />
+          </div>
+          <div class="col" style="float: left">
+            <select class="lang_slt" name="lang" id="lang" onchange="nextopt(this)">
+              <option value="eng">English</option>
+              <option value="fre">French</option>
+              <option value="ger">German</option>
+            </select>
+          </div>
+          <!--<div class="col" style="float: left">
+            <select class="lang_slt" name="lang" id="lang">
+              <option value="ct">Content Type</option>
+              <option value="rev">Review</option>
+              <option value="gen">Generic</option>
+              <option value="com">Complaint</option>
+              <option value="fdb">Feedback</option>
+            </select>
+          </div>-->
+        </div>
+      </form>
+    </div>
+    {% endblock %}
